@@ -8,9 +8,11 @@ how well BlendGAN preserves the edited attributes, and compares three ways of ge
 photograph into the editable latent space in the first place.
 
 Sabancı University graduate course project, 2022, with Ali Osman Berk Şapcı and Cem Kaya.
-**[Full report (PDF, 10 pages)](docs/report_2022.pdf).** The experiments ran on the upstream
-implementations linked below; this repository holds the report, the result figures and the
-method summary.
+**[Read the report (PDF)](docs/report.pdf)**, typeset in 2026 from the 2022 course report
+(source [`docs/report.md`](docs/report.md); the original Google-Doc export is in
+[`docs/legacy/`](docs/legacy/)). The experiments ran on the upstream implementations linked
+below; this repository holds the report, the result figures and animations, and the method
+summary.
 
 ```mermaid
 flowchart LR
