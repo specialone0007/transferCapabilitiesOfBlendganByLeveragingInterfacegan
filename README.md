@@ -12,7 +12,16 @@ Sabancı University graduate course project, 2022, with Ali Osman Berk Şapcı a
 implementations linked below; this repository holds the report, the result figures and the
 method summary.
 
-![pipeline](docs/figures/pipeline.jpg)
+```mermaid
+flowchart LR
+    A[Input photo] --> B[Encoder / optimisation<br/>W or W+ latent code]
+    S[Sample z] --> M[StyleGAN mapping f] --> B
+    B --> E[InterFaceGAN edit<br/>code + w · boundary normal<br/>age · glasses · gender · smile · pose]
+    E --> G[StyleGAN synthesis g] --> F[Edited face]
+    R[Reference style image] --> SE[BlendGAN style encoder]
+    F --> WBM[BlendGAN weighted blending] 
+    SE --> WBM --> O[Stylised, edited portrait]
+```
 
 ## What was done
 
@@ -33,16 +42,20 @@ method summary.
 ## Results
 
 **InterFaceGAN edits are robust across the useful range** (weights around ±2) and degrade
-only at extreme weights; the report's Fig. 6 shows the sweeps for all five attributes.
+only at the extremes. One sampled face, each attribute swept from −∞ to +∞:
+
+| aging | eyeglasses | gender | smile | head pose |
+|---|---|---|---|---|
+| ![aging](docs/figures/anim/aging.gif) | ![eyeglasses](docs/figures/anim/eyeglasses.gif) | ![gender](docs/figures/anim/gender.gif) | ![smile](docs/figures/anim/smile.gif) | ![pose](docs/figures/anim/pose.gif) |
 
 **BlendGAN keeps the edit.** Same reference style, three edits of one sampled face: original,
 younger, with eyeglasses. The stylised portrait follows each change.
 
 ![edit then stylise](docs/figures/edit-then-stylise-woman.jpg)
 
-One edited face, several reference styles:
+One edited face (older, with eyeglasses), cycling through reference styles:
 
-![multiple styles](docs/figures/multiple-styles.jpg)
+![multiple styles](docs/figures/anim/multiple-styles.gif)
 
 **Pose survives stylisation.** Original, turned left, turned right, each with a comic-like
 reference.
