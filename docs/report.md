@@ -26,7 +26,7 @@ header-includes:
   - \usepackage{fancyhdr}
   - \pagestyle{fancy}
   - \fancyhead[L]{\small InterFaceGAN × BlendGAN}
-  - \fancyhead[R]{\small github.com/specialone0007/transferCapabilitiesOfBlendganByLeveragingInterfacegan}
+  - \fancyhead[R]{\small github.com/specialone0007}
   - \renewcommand{\headrulewidth}{0.2pt}
 ---
 
